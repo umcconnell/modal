@@ -74,7 +74,7 @@ You can customize the appearance of the modal by overriding the styles, like so:
     background-color: green;
 }
 
-.my-modal modal__content {
+.my-modal .modal__content {
     background-color: blue;
     border-radius: 0;
 }
