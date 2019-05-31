@@ -90,8 +90,6 @@ And using following html:
 </div>
 ```
 
-See the [docs](/docs/docs.md#customizing) for more information.
-
 ## Docs
 
 See the [docs](docs/docs.md) for more information about methods and
