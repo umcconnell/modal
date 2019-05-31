@@ -29,10 +29,23 @@ Add this to the `head` of your html file:
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/gh/umcconnell/modal@1/src/modal.css"
 />
-<script src="https://cdn.jsdelivr.net/gh/umcconnell/modal@1/src/modal.js"></script>
 ```
 
-And create your modal in `body`, preferably at the end:
+Include the js functionality before you other scripts, for example at the end of
+the `<body>`:
+
+```html
+<main>
+    ...
+</main>
+
+<script src="https://cdn.jsdelivr.net/gh/umcconnell/modal@1/src/modal.js"></script>
+<script>
+    // Your other code here...
+</script>
+```
+
+And create your modal in the `<body>`, preferably after your main content:
 
 ```html
 <div class="modal" id="myModal">
