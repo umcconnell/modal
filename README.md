@@ -103,14 +103,14 @@ conduct, and the process for submitting pull requests to us.
 ## Versioning
 
 We use [SemVer](http://semver.org/) for versioning. For the versions available,
-see the [tags on this repository](https://github.com/umcconnell/destroyer2/tags).
+see the [tags on this repository](https://github.com/umcconnell/modal/tags).
 
 ## Authors
 
 Ulysse McConnell - [umcconnell](https://github.com/umcconnell/)
 
 See also the list of
-[contributors](https://github.com/umcconnell/destroyer2/contributors)
+[contributors](https://github.com/umcconnell/modal/contributors)
 who participated in this project.
 
 ## License
