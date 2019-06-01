@@ -7,6 +7,7 @@ A modal for the web
 -   [Getting Started](#getting-started)
     -   [Using](#using)
     -   [Customizing](#customizing)
+-   [Examples](#examples)
 -   [Docs](#docs)
 -   [Contributing](#contributing)
 -   [Versioning](#versioning)
@@ -89,6 +90,14 @@ And using following html:
     </div>
 </div>
 ```
+
+## Examples
+
+You can find more examples in the [examples folder](examples/) or on JSFiddle
+for you to experiment in live:
+
+-   [Basic](https://jsfiddle.net/umcconnell/n0py6abt/)
+-   [Zoom-out and close](https://jsfiddle.net/umcconnell/z9h6Lsbo/)
 
 ## Docs
 
