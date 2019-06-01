@@ -10,6 +10,7 @@
     -   [Modal](#modal)
     -   [Backdrop](#backdrop)
     -   [Content](#content)
+    -   [CloseBtn](#closebtn)
 
 ## Modal Constructor
 
@@ -97,4 +98,12 @@ generated when constructing the modal object if it doesn't exist.
 Reference to the modal content (`.modal__content`).
 
 -   **Name:** `content`
+-   **Type:** Property
+
+### CloseBtn
+
+Array containing a reference to modal close button(s) (all elements in the modal
+with the class `modal__close`).
+
+-   **Name:** `closeBtn`
 -   **Type:** Property
