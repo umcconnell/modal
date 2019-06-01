@@ -11,6 +11,7 @@
     -   [Backdrop](#backdrop)
     -   [Content](#content)
     -   [CloseBtn](#closebtn)
+    -   [State](#state)
 
 ## Modal Constructor
 
@@ -106,4 +107,11 @@ Array containing a reference to modal close button(s) (all elements in the modal
 with the class `modal__close`).
 
 -   **Name:** `closeBtn`
+-   **Type:** Property
+
+### State
+
+String reflecting the state of the modal. Is either `"open"` or `"closed"`.
+
+-   **Name:** `state`
 -   **Type:** Property
