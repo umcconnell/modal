@@ -7,6 +7,7 @@
     -   [Open](#open)
     -   [Close](#close)
     -   [Toggle](#toggle)
+    -   [On](#on)
     -   [Modal](#modal)
     -   [Backdrop](#backdrop)
     -   [Content](#content)
@@ -77,6 +78,24 @@ is closed.
 
     ```js
     myModal.toggle();
+    ```
+
+### On
+
+Adds an event-listener for a specific [event](#modal-events).
+
+-   **Name:** `on`
+-   **Type:** Method
+-   **Arguments:**
+    -   _event_: [event](#modal-events) to listen for (string)
+    -   _callback_: callback function to be called when the specified event
+        occurs (function). The callback is called with the modal object as
+        argument.
+-   **Returns:** `undefined`
+-   **Example:**
+
+    ```js
+    myModal.on("open", modal => console.log("Modal opened!"));
     ```
 
 ### Modal
