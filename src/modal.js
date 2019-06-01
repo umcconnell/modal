@@ -58,10 +58,11 @@ const Modal = (function() {
             this.modal.classList.add("open");
             this.modal.classList.remove("closed");
             this.state = "open";
-
             document.body.classList.add("modal-open");
 
             this.events["open"] && this.events["open"].forEach(cb => cb(this));
+            // Save currently focused element for focus-restore
+            this.lastFocusedElement = document.activeElement;
         }
 
         close() {
@@ -73,6 +74,8 @@ const Modal = (function() {
 
             this.events["close"] &&
                 this.events["close"].forEach(cb => cb(this));
+            // Restore focus
+            this.lastFocusedElement && this.lastFocusedElement.focus();
         }
 
         toggle() {
