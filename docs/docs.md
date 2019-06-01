@@ -4,6 +4,7 @@
 
 -   [Modal Constructor](#modal-constructor)
 -   [Modal Object](#modal-object)
+    -   [Open](#open)
 
 ## Modal Constructor
 
@@ -25,3 +26,16 @@ With the modal object you can for example control the modal or listen to events.
 
 The modal object is constructed with the
 [modal constructor](#modal-constructor). It has following methods / propreties:
+
+### Open
+
+Opens the modal.
+
+-   **Type:** Method
+-   **Arguments:** none
+-   **Returns:** `undefined`
+-   **Example:**
+
+    ```js
+    myModal.open();
+    ```
