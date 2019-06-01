@@ -12,6 +12,7 @@
     -   [Content](#content)
     -   [CloseBtn](#closebtn)
     -   [State](#state)
+    -   [Events](#events)
 
 ## Modal Constructor
 
@@ -114,4 +115,11 @@ with the class `modal__close`).
 String reflecting the state of the modal. Is either `"open"` or `"closed"`.
 
 -   **Name:** `state`
+-   **Type:** Property
+
+### Events
+
+Object containing list(s) of callback functions for different types of events
+
+-   **Name:** `events`
 -   **Type:** Property
