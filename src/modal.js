@@ -12,6 +12,10 @@ const Modal = (function() {
             ({ target }) => target === Modal.backdrop && Modal.close()
         );
 
+        Modal.closeBtn.forEach(btn =>
+            btn.addEventListener("click", () => Modal.close())
+        );
+
         window.addEventListener("keydown", ({ key }) => {
             if (
                 key === "Escape" &&
