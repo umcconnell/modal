@@ -1,4 +1,8 @@
 const Modal = (function() {
+    function accessibilizeCloseBtn(closeBtn) {
+        closeBtn.setAttribute("aria-label", "Close");
+    }
+
     function addBackdrop(modal) {
         let backdrop = document.createElement("div");
         backdrop.className = "modal__backdrop";
@@ -41,6 +45,7 @@ const Modal = (function() {
             this.state = "closed";
 
             bindEvents(this);
+            this.closeBtn.forEach(accessibilizeCloseBtn);
         }
 
         open() {
