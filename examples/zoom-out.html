@@ -45,15 +45,18 @@
                     Quia labore sequi rerum libero unde in illo.
                 </p>
             </div>
+            <button class="modal__close">&times;</button>
         </div>
 
         <script src="../src/modal.js"></script>
         <script>
             let modal = new Modal(".modal");
+            let wait = ms => new Promise(res => setTimeout(res, ms));
 
-            modal.open();
-
-            setTimeout(() => modal.close(), 5000);
+            wait(1000)
+                .then(() => modal.open())
+                .then(() => wait(5000))
+                .then(() => modal.close());
         </script>
     </body>
 </html>
