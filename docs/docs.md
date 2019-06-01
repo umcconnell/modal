@@ -15,6 +15,9 @@
     -   [CloseBtn](#closebtn)
     -   [State](#state)
     -   [Events](#events)
+-   [Modal Events](#modal-events)
+    -   [Close Event](#close-event)
+    -   [Open Event](#open-event)
 
 ## Modal Constructor
 
@@ -163,3 +166,19 @@ Object containing list(s) of callback functions for different types of events
 
 -   **Name:** `events`
 -   **Type:** Property
+
+## Modal Events
+
+There are two modal events you can listen for with the [on](#on) method:
+
+### Close Event
+
+Emitted when modal is closed (by the user or programmatically).
+
+-   **Name:** `close`
+
+### Open Event
+
+Emitted when the modal is opened (by the user or programmatically).
+
+-   **Name:** `open`
