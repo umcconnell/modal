@@ -1,26 +1,44 @@
+function addBackdrop(modal) {
+    let backdrop = document.createElement("div");
+    backdrop.className = "modal__backdrop";
+    modal.insertAdjacentElement("beforeend", backdrop);
+    return backdrop;
+}
+
+function bindEvents(Modal) {
+    Modal.modal.addEventListener(
+        "click",
+        ({ target }) => target === Modal.backdrop && Modal.close()
+    );
+
+    Modal.closeBtn.forEach(btn =>
+        btn.addEventListener("click", () => Modal.close())
+    );
+
+    window.addEventListener("keydown", ({ key }) => {
+        if (
+            key === "Escape" &&
+            document.body.classList.contains("modal-open") &&
+            Modal.state === "open"
+        ) {
+            Modal.close();
+        }
+    });
+}
+
 export default class Modal {
     constructor(modal) {
         if (!(modal instanceof Element)) modal = document.querySelector(modal);
 
         this.modal = modal;
-        this.content = modal.querySelector("modal__content");
+        this.backdrop =
+            modal.querySelector(".modal__backdrop, .modal__background") ||
+            addBackdrop(modal);
+        this.content = modal.querySelector(".modal__content");
+        this.closeBtn = [...modal.querySelectorAll(".modal__close")];
         this.state = "closed";
 
-        this.modal.addEventListener("click", ({ target }) => {
-            if (target === modal) {
-                this.close(modal);
-            }
-        });
-
-        window.addEventListener("keydown", ({ key }) => {
-            if (
-                key === "Escape" &&
-                document.body.classList.contains("modal-open") &&
-                this.state === "open"
-            ) {
-                this.close();
-            }
-        });
+        bindEvents(this);
     }
 
     open() {
