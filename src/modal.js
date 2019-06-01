@@ -55,6 +55,7 @@ const Modal = (function() {
         }
 
         open() {
+            if (this.state === "open") return;
             this.modal.classList.add("open");
             this.modal.classList.remove("closed");
             this.state = "open";
@@ -66,6 +67,7 @@ const Modal = (function() {
         }
 
         close() {
+            if (this.state === "closed") return;
             this.modal.classList.add("closed");
             this.modal.classList.remove("open");
             this.state = "closed";
