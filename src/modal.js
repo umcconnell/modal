@@ -1,6 +1,10 @@
 const Modal = (function() {
+    function accessibilizeModal(Modal) {
+        Modal.modal.setAttribute("role", "dialog");
+    }
+
     function accessibilizeCloseBtn(closeBtn) {
-        closeBtn.setAttribute("aria-label", "Close");
+        closeBtn.setAttribute("aria-label", "Close Dialog");
     }
 
     function addBackdrop(modal) {
@@ -45,6 +49,7 @@ const Modal = (function() {
             this.state = "closed";
 
             bindEvents(this);
+            accessibilizeModal(this);
             this.closeBtn.forEach(accessibilizeCloseBtn);
         }
 
