@@ -7,6 +7,7 @@
     -   [Open](#open)
     -   [Close](#close)
     -   [Toggle](#toggle)
+    -   [Modal](#modal)
 
 ## Modal Constructor
 
@@ -27,7 +28,7 @@ With the modal object you can for example control the modal or listen to events.
 ## Modal Object
 
 The modal object is constructed with the
-[modal constructor](#modal-constructor). It has following methods / propreties:
+[modal constructor](#modal-constructor). It has following methods / properties:
 
 ### Open
 
@@ -68,3 +69,10 @@ is closed.
     ```js
     myModal.toggle();
     ```
+
+### Modal
+
+Reference to modal object passed as element or selector to the
+[modal constructor](#modal-constructor).
+
+-   **Type:** Property
