@@ -8,6 +8,7 @@
     -   [Close](#close)
     -   [Toggle](#toggle)
     -   [On](#on)
+    -   [RemoveEvent](#removeevent)
     -   [Modal](#modal)
     -   [Backdrop](#backdrop)
     -   [Content](#content)
@@ -96,6 +97,26 @@ Adds an event-listener for a specific [event](#modal-events).
 
     ```js
     myModal.on("open", modal => console.log("Modal opened!"));
+    ```
+
+### RemoveEvent
+
+Removes an event-listener for a specific [event](#modal-events).
+
+-   **Name:** `removeEvent`
+-   **Type:** Method
+-   **Arguments:**
+    -   _event_: [event](#modal-events) type (string)
+    -   _callback_: **named** callback function to remove from [events](#events)
+        object
+-   **Returns:** `undefined`
+-   **Example:**
+
+    ```js
+    let myCallback = modal => console.log("Modal opened!");
+
+    myModal.on("open", myCallback);
+    myModal.removeEvent("open", myCallback);
     ```
 
 ### Modal
