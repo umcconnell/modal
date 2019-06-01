@@ -47,6 +47,7 @@ const Modal = (function() {
             this.content = modal.querySelector(".modal__content");
             this.closeBtn = [...modal.querySelectorAll(".modal__close")];
             this.state = "closed";
+            this.events = {};
 
             bindEvents(this);
             accessibilizeModal(this);
@@ -59,6 +60,8 @@ const Modal = (function() {
             this.state = "open";
 
             document.body.classList.add("modal-open");
+
+            this.events["open"] && this.events["open"].forEach(cb => cb(this));
         }
 
         close() {
@@ -67,11 +70,25 @@ const Modal = (function() {
             this.state = "closed";
 
             document.body.classList.remove("modal-open");
+
+            this.events["close"] &&
+                this.events["close"].forEach(cb => cb(this));
         }
 
         toggle() {
             if (this.state === "closed") return this.open();
             return this.close();
+        }
+
+        on(evt, cb) {
+            this.events[evt]
+                ? this.events[evt].push(cb)
+                : (this.events[evt] = [cb]);
+        }
+
+        removeEvent(evt, func) {
+            let evtList = this.events[evt];
+            evtList && (evtList = evtList.filter(cb => cb !== func));
         }
     };
 })();
