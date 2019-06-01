@@ -16,6 +16,7 @@
 The modal constructor allows you to activate and accessibilize your modal.
 With the modal object you can for example control the modal or listen to events.
 
+-   **Name:** `Modal`
 -   **Arguments:**
     -   _modal_: modal element (Element) or css selector
 -   **Returns:** [modal object](#modal-object)
@@ -36,6 +37,7 @@ The modal object is constructed with the
 
 Opens the modal.
 
+-   **Name:** `open`
 -   **Type:** Method
 -   **Arguments:** none
 -   **Returns:** `undefined`
@@ -49,6 +51,7 @@ Opens the modal.
 
 Closes the modal.
 
+-   **Name:** `close`
 -   **Type:** Method
 -   **Arguments:** none
 -   **Returns:** `undefined`
@@ -63,6 +66,7 @@ Closes the modal.
 Toggles a modal: If the modal is closed, it will be opened. Otherwise the modal
 is closed.
 
+-   **Name:** `toggle`
 -   **Type:** Method
 -   **Arguments:** none
 -   **Returns:** `undefined`
@@ -77,6 +81,7 @@ is closed.
 Reference to modal object passed as element or selector to the
 [modal constructor](#modal-constructor).
 
+-   **Name:** `modal`
 -   **Type:** Property
 
 ### Backdrop
@@ -84,10 +89,12 @@ Reference to modal object passed as element or selector to the
 Reference to the backdrop element of the modal. The backdrop element is
 generated when constructing the modal object if it doesn't exist.
 
+-   **Name:** `backdrop`
 -   **Type:** Property
 
 ### Content
 
 Reference to the modal content (`.modal__content`).
 
+-   **Name:** `content`
 -   **Type:** Property
