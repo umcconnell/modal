@@ -8,6 +8,7 @@
     -   [Close](#close)
     -   [Toggle](#toggle)
     -   [Modal](#modal)
+    -   [Backdrop](#backdrop)
 
 ## Modal Constructor
 
@@ -74,5 +75,12 @@ is closed.
 
 Reference to modal object passed as element or selector to the
 [modal constructor](#modal-constructor).
+
+-   **Type:** Property
+
+### Backdrop
+
+Reference to the backdrop element of the modal. The backdrop element is
+generated when constructing the modal object if it doesn't exist.
 
 -   **Type:** Property
