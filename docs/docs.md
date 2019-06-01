@@ -2,6 +2,7 @@
 
 ## Table of Contents
 
+-   [HTML Structure](#html-structure)
 -   [Modal Constructor](#modal-constructor)
 -   [Modal Object](#modal-object)
     -   [Open](#open)
@@ -18,6 +19,46 @@
 -   [Modal Events](#modal-events)
     -   [Close Event](#close-event)
     -   [Open Event](#open-event)
+
+## HTML structure
+
+A modal consists of an element with the class `modal`. This modal comprises:
+
+-   an element with the class `modal__content` containing the content
+-   optionally a button with the classes `modal__close` and
+    `modal__close-icon` to provide a close icon to the user
+
+    **Note:** This icon can be placed directly inside the `modal` element or in
+    the `modal__content` element.  
+    Placing the icon directly inside the `modal` element results in the icon
+    being placed in the top-right corner of the screen (over the backdrop),
+    whereas the close icon in the `modal__content` results in the icon being
+    placed in the top-right corner of the content box (the actual modal).
+
+    **Note:** You can use two close icons (in directly in `modal` and one in
+    `modal__content`) if you want and as many close elements (`modal__close`)
+    in a modal.
+
+    **Tipp:** You can use the HTML entity `&times;` to create a "x" icon.
+
+-   optionally an element with the class `modal__backdrop` or
+    `modal__background`. This element is automatically inserted by the script
+    when using the [modal constructor](#modal-constructor) if it isn't present
+    in the modal already.
+
+Your modal could look like this:
+
+```html
+<div class="modal">
+    <div class="modal__content">
+        <h1>Hello World</h1>
+        This is my modal!
+    </div>
+    <button class="modal__close modal__close-icon">&times;</button>
+</div>
+```
+
+See the [examples folder](../examples) for more examples.
 
 ## Modal Constructor
 
