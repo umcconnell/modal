@@ -9,6 +9,7 @@
     -   [Toggle](#toggle)
     -   [Modal](#modal)
     -   [Backdrop](#backdrop)
+    -   [Content](#content)
 
 ## Modal Constructor
 
@@ -82,5 +83,11 @@ Reference to modal object passed as element or selector to the
 
 Reference to the backdrop element of the modal. The backdrop element is
 generated when constructing the modal object if it doesn't exist.
+
+-   **Type:** Property
+
+### Content
+
+Reference to the modal content (`.modal__content`).
 
 -   **Type:** Property
