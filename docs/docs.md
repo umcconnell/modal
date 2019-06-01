@@ -19,6 +19,7 @@
 -   [Modal Events](#modal-events)
     -   [Close Event](#close-event)
     -   [Open Event](#open-event)
+-   [Best Practices](#best-practices)
 
 ## HTML structure
 
@@ -223,3 +224,7 @@ Emitted when modal is closed (by the user or programmatically).
 Emitted when the modal is opened (by the user or programmatically).
 
 -   **Name:** `open`
+
+## Best Practices
+
+It is recommended to place your modals after your main content.
