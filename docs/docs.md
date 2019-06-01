@@ -5,6 +5,7 @@
 -   [Modal Constructor](#modal-constructor)
 -   [Modal Object](#modal-object)
     -   [Open](#open)
+    -   [Close](#close)
 
 ## Modal Constructor
 
@@ -38,4 +39,17 @@ Opens the modal.
 
     ```js
     myModal.open();
+    ```
+
+### Close
+
+Closes the modal.
+
+-   **Type:** Method
+-   **Arguments:** none
+-   **Returns:** `undefined`
+-   **Example:**
+
+    ```js
+    myModal.close();
     ```
