@@ -1,46 +1,63 @@
-class Modal {
-    constructor(modal) {
-        if (!(modal instanceof Element)) modal = document.querySelector(modal);
+const Modal = (function() {
+    function addBackdrop(modal) {
+        let backdrop = document.createElement("div");
+        backdrop.className = "modal__backdrop";
+        modal.insertAdjacentElement("beforeend", backdrop);
+        return backdrop;
+    }
 
-        this.modal = modal;
-        this.content = modal.querySelector("modal__content");
-        this.state = "closed";
-
-        this.modal.addEventListener("click", ({ target }) => {
-            if (target === modal) {
-                this.close(modal);
-            }
-        });
+    function bindEvents(Modal) {
+        Modal.modal.addEventListener(
+            "click",
+            ({ target }) => target === Modal.backdrop && Modal.close()
+        );
 
         window.addEventListener("keydown", ({ key }) => {
             if (
                 key === "Escape" &&
                 document.body.classList.contains("modal-open") &&
-                this.state === "open"
+                Modal.state === "open"
             ) {
-                this.close();
+                Modal.close();
             }
         });
     }
 
-    open() {
-        this.modal.classList.add("open");
-        this.modal.classList.remove("closed");
-        this.state = "open";
+    return class Modal {
+        constructor(modal) {
+            if (!(modal instanceof Element))
+                modal = document.querySelector(modal);
 
-        document.body.classList.add("modal-open");
-    }
+            this.modal = modal;
+            this.backdrop =
+                modal.querySelector(".modal__backdrop, .modal__background") ||
+                addBackdrop(modal);
+            this.content = modal.querySelector(".modal__content");
+            this.closeBtn = [...modal.querySelectorAll(".modal__close")];
+            this.state = "closed";
 
-    close() {
-        this.modal.classList.add("closed");
-        this.modal.classList.remove("open");
-        this.state = "closed";
+            bindEvents(this);
+        }
 
-        document.body.classList.remove("modal-open");
-    }
+        open() {
+            this.modal.classList.add("open");
+            this.modal.classList.remove("closed");
+            this.state = "open";
 
-    toggle() {
-        if (this.state === "closed") return this.open();
-        return this.close();
-    }
-}
+            document.body.classList.add("modal-open");
+        }
+
+        close() {
+            this.modal.classList.add("closed");
+            this.modal.classList.remove("open");
+            this.state = "closed";
+
+            document.body.classList.remove("modal-open");
+        }
+
+        toggle() {
+            if (this.state === "closed") return this.open();
+            return this.close();
+        }
+    };
+})();
