@@ -48,7 +48,7 @@
     transition-delay: 0.1s;
 }
 
-.modal__close {
+.modal__close-icon {
     position: absolute;
     top: 0;
     right: 1rem;
@@ -63,13 +63,13 @@
     cursor: pointer;
 }
 
-.modal__close:focus,
-.modal__close:hover {
+.modal__close-icon:focus,
+.modal__close-icon:hover {
     transform: scale(1.2);
     color: red;
 }
 
-.modal > .modal__close {
+.modal > .modal__close-icon {
     color: #fff;
 }
 
