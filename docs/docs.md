@@ -6,6 +6,7 @@
 -   [Modal Object](#modal-object)
     -   [Open](#open)
     -   [Close](#close)
+    -   [Toggle](#toggle)
 
 ## Modal Constructor
 
@@ -52,4 +53,18 @@ Closes the modal.
 
     ```js
     myModal.close();
+    ```
+
+### Toggle
+
+Toggles a modal: If the modal is closed, it will be opened. Otherwise the modal
+is closed.
+
+-   **Type:** Method
+-   **Arguments:** none
+-   **Returns:** `undefined`
+-   **Example:**
+
+    ```js
+    myModal.toggle();
     ```
