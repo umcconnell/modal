@@ -67,7 +67,7 @@ With the modal object you can for example control the modal or listen to events.
 
 -   **Name:** `Modal`
 -   **Arguments:**
-    -   _modal_: modal element (Element) or css selector
+    -   _modal_: modal element (Element) or css selector string
 -   **Returns:** [modal object](#modal-object)
 -   **Example:**
 
