@@ -16,6 +16,11 @@ const Modal = (function() {
     }
 
     function bindEvents(Modal) {
+        let focusElements = focusableElements(Modal.modal);
+
+        Modal.firstFocusElement = focusElements[0];
+        Modal.lastFocusElement = focusElements[focusElements.length - 1];
+
         Modal.modal.addEventListener(
             "click",
             ({ target }) => target === Modal.backdrop && Modal.close()
@@ -25,11 +30,29 @@ const Modal = (function() {
             btn.addEventListener("click", () => Modal.close())
         );
 
-        Modal.modal.addEventListener("keydown", ({ key }) => {
-            if (key === "Escape" && Modal.state === "open") {
+        Modal.modal.addEventListener("keydown", e => {
+            if (Modal.state !== "open") return;
+            else if (e.key === "Escape") {
                 Modal.close();
+            } else if (e.key === "Tab") {
+                if (e.shiftKey && e.target === Modal.firstFocusElement) {
+                    Modal.lastFocusElement.focus();
+                    e.preventDefault();
+                } else if (!e.shiftKey && e.target === Modal.lastFocusElement) {
+                    Modal.firstFocusElement.focus();
+                    e.preventDefault();
+                }
             }
         });
+    }
+
+    function focusableElements(modal) {
+        // see: https://hiddedevries.nl/en/blog/2017-01-29-using-javascript-to-trap-focus-in-an-element
+        return [
+            ...modal.querySelectorAll(
+                'a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
+            )
+        ];
     }
 
     return class Modal {
@@ -43,6 +66,7 @@ const Modal = (function() {
                 addBackdrop(modal);
             this.content = modal.querySelector(".modal__content");
             this.closeBtn = [...modal.querySelectorAll(".modal__close")];
+
             this.state = "closed";
             this.events = {};
 
