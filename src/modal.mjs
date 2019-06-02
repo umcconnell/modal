@@ -1,5 +1,6 @@
 function accessibilizeModal(Modal) {
     Modal.modal.setAttribute("role", "dialog");
+    Modal.modal.setAttribute("tabindex", "-1");
 }
 
 function accessibilizeCloseBtn(closeBtn) {
@@ -14,6 +15,11 @@ function addBackdrop(modal) {
 }
 
 function bindEvents(Modal) {
+    let focusElements = focusableElements(Modal.modal);
+
+    Modal.firstFocusElement = focusElements[0];
+    Modal.lastFocusElement = focusElements[focusElements.length - 1];
+
     Modal.modal.addEventListener(
         "click",
         ({ target }) => target === Modal.backdrop && Modal.close()
@@ -23,15 +29,29 @@ function bindEvents(Modal) {
         btn.addEventListener("click", () => Modal.close())
     );
 
-    window.addEventListener("keydown", ({ key }) => {
-        if (
-            key === "Escape" &&
-            document.body.classList.contains("modal-open") &&
-            Modal.state === "open"
-        ) {
+    Modal.modal.addEventListener("keydown", e => {
+        if (Modal.state !== "open") return;
+        else if (e.key === "Escape") {
             Modal.close();
+        } else if (e.key === "Tab") {
+            if (e.shiftKey && e.target === Modal.firstFocusElement) {
+                Modal.lastFocusElement.focus();
+                e.preventDefault();
+            } else if (!e.shiftKey && e.target === Modal.lastFocusElement) {
+                Modal.firstFocusElement.focus();
+                e.preventDefault();
+            }
         }
     });
+}
+
+function focusableElements(modal) {
+    // see: https://hiddedevries.nl/en/blog/2017-01-29-using-javascript-to-trap-focus-in-an-element
+    return [
+        ...modal.querySelectorAll(
+            'a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        )
+    ];
 }
 
 export default class Modal {
@@ -44,6 +64,7 @@ export default class Modal {
             addBackdrop(modal);
         this.content = modal.querySelector(".modal__content");
         this.closeBtn = [...modal.querySelectorAll(".modal__close")];
+
         this.state = "closed";
         this.events = {};
 
@@ -54,24 +75,29 @@ export default class Modal {
 
     open() {
         if (this.state === "open") return;
+
         this.modal.classList.add("open");
         this.modal.classList.remove("closed");
         this.state = "open";
         document.body.classList.add("modal-open");
 
+        // Emit event
         this.events["open"] && this.events["open"].forEach(cb => cb(this));
         // Save currently focused element for focus-restore
         this.lastFocusedElement = document.activeElement;
+        this.modal.focus();
     }
 
     close() {
         if (this.state === "closed") return;
+
         this.modal.classList.add("closed");
         this.modal.classList.remove("open");
         this.state = "closed";
 
         document.body.classList.remove("modal-open");
 
+        // Emit event
         this.events["close"] && this.events["close"].forEach(cb => cb(this));
         // Restore focus
         this.lastFocusedElement && this.lastFocusedElement.focus();
