@@ -46,6 +46,20 @@ the `<body>`:
 </script>
 ```
 
+You can also use the es6 module version:
+
+```html
+<main>
+    ...
+</main>
+
+<script type="module">
+    import Modal from "https://cdn.jsdelivr.net/gh/umcconnell/modal@1/src/modal.mjs"
+    
+    //Your code here...
+</script>
+```
+
 And create your modal in the `<body>`, preferably after your main content:
 
 ```html
