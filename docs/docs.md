@@ -20,6 +20,8 @@
     -   [Close Event](#close-event)
     -   [Open Event](#open-event)
 -   [Best Practices](#best-practices)
+    -   [Placement](#placement)
+    -   [Description](#description)
 
 ## HTML structure
 
@@ -227,4 +229,35 @@ Emitted when the modal is opened (by the user or programmatically).
 
 ## Best Practices
 
+### Placement
+
 It is recommended to place your modals after your main content.
+
+### Description
+
+To keep your modal accessible for screen-readers you should add a `aria-label`
+attribute describing the content of the modal briefly:
+
+```html
+<div class="modal" aria-label="Example Description">
+    <div class="modal__content">
+        <h1>Hello World</h1>
+        This is my modal!
+    </div>
+    <button class="modal__close modal__close-icon">&times;</button>
+</div>
+```
+
+Alternatively you can add a `aria-labelledby` attribute referencing an element
+describing your modal by id:
+
+```html
+<div class="modal" aria-labelledby="modaldescription">
+    <div class="modal__content">
+        <p hidden id="modaldescription">Example Description</p>
+        <h1>Hello World</h1>
+        This is my modal!
+    </div>
+    <button class="modal__close modal__close-icon">&times;</button>
+</div>
+```
