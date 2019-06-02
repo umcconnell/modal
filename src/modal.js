@@ -1,6 +1,7 @@
 const Modal = (function() {
     function accessibilizeModal(Modal) {
         Modal.modal.setAttribute("role", "dialog");
+        Modal.modal.setAttribute("tabindex", "-1");
     }
 
     function accessibilizeCloseBtn(closeBtn) {
@@ -24,12 +25,8 @@ const Modal = (function() {
             btn.addEventListener("click", () => Modal.close())
         );
 
-        window.addEventListener("keydown", ({ key }) => {
-            if (
-                key === "Escape" &&
-                document.body.classList.contains("modal-open") &&
-                Modal.state === "open"
-            ) {
+        Modal.modal.addEventListener("keydown", ({ key }) => {
+            if (key === "Escape" && Modal.state === "open") {
                 Modal.close();
             }
         });
@@ -56,24 +53,29 @@ const Modal = (function() {
 
         open() {
             if (this.state === "open") return;
+
             this.modal.classList.add("open");
             this.modal.classList.remove("closed");
             this.state = "open";
             document.body.classList.add("modal-open");
 
+            // Emit event
             this.events["open"] && this.events["open"].forEach(cb => cb(this));
             // Save currently focused element for focus-restore
             this.lastFocusedElement = document.activeElement;
+            this.modal.focus();
         }
 
         close() {
             if (this.state === "closed") return;
+
             this.modal.classList.add("closed");
             this.modal.classList.remove("open");
             this.state = "closed";
 
             document.body.classList.remove("modal-open");
 
+            // Emit event
             this.events["close"] &&
                 this.events["close"].forEach(cb => cb(this));
             // Restore focus
