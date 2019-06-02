@@ -49,7 +49,7 @@ the `<body>`:
 And create your modal in the `<body>`, preferably after your main content:
 
 ```html
-<div class="modal" id="myModal">
+<div class="modal" id="myModal" aria-label="Example Description">
     <div class="modal__content">
         <h2>Hello World!</h2>
     </div>
@@ -84,7 +84,7 @@ You can customize the appearance of the modal by overriding the styles, like so:
 And using following html:
 
 ```html
-<div class="modal myModal">
+<div class="modal myModal" aria-label="Example Description">
     <div class="modal__content">
         <h2>Hello World!</h2>
     </div>

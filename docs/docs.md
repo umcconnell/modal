@@ -52,7 +52,7 @@ A modal consists of an element with the class `modal`. This modal comprises:
 Your modal could look like this:
 
 ```html
-<div class="modal">
+<div class="modal" aria-label="Example Description">
     <div class="modal__content">
         <h1>Hello World</h1>
         This is my modal!
