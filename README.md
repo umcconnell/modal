@@ -128,3 +128,12 @@ This project is licensed under the MIT License - see the
 [LICENSE.md](LICENSE.md) file for details.
 
 ## Acknowledgments
+
+Guidelines for accessible modals:
+
+-   https://bitsofco.de/accessible-modal-dialog/
+-   https://developer.yoast.com/the-a11y-monthly-making-modals-accessible/
+-   https://accessuse.eu/en/modal-dialogs.html
+-   https://www.w3.org/WAI/GL/wiki/Using_ARIA_role%3Ddialog_to_implement_a_modal_dialog_box
+-   https://humanwhocodes.com/blog/2013/02/12/making-an-accessible-dialog-box/
+-   https://hiddedevries.nl/en/blog/2017-01-29-using-javascript-to-trap-focus-in-an-element
