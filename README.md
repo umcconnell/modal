@@ -98,6 +98,7 @@ for you to experiment in live:
 
 -   [Basic](https://jsfiddle.net/umcconnell/n0py6abt/)
 -   [Zoom-out and close](https://jsfiddle.net/umcconnell/z9h6Lsbo/)
+-   [Advanced Example](https://jsfiddle.net/umcconnell/0mgsca49/)
 
 ## Docs
 
