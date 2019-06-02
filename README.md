@@ -1,6 +1,6 @@
 # modal
 
-A modal for the web
+A simple accessible drop-in modal.
 
 ## Table of Contents
 
