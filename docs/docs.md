@@ -19,6 +19,9 @@
 -   [Modal Events](#modal-events)
     -   [Close Event](#close-event)
     -   [Open Event](#open-event)
+-   [Customizing](#customizing)
+    -   [Zoom-out](#zoom-out)
+    -   [No overflow](#no-overflow)
 -   [Best Practices](#best-practices)
     -   [Placement](#placement)
     -   [Description](#description)
@@ -226,6 +229,49 @@ Emitted when modal is closed (by the user or programmatically).
 Emitted when the modal is opened (by the user or programmatically).
 
 -   **Name:** `open`
+
+## Customizing
+
+You can customize the appearance of the modal by overriding its css:
+
+```html
+<head>
+    ...
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/umcconnell/modal@1/src/modal.css"
+    />
+    <style>
+        /*Your Custom Modal Styles */
+    </style>
+</head>
+```
+
+Here are some practical examples to copy-paste
+
+### Zoom-out
+
+Zoom-out the background when opening a modal.
+
+```css
+main {
+    transition: transform 0.3s;
+}
+
+body.modal-open main {
+    transform: scale(0.97);
+}
+```
+
+### No overflow
+
+Hide scrollbars of the background when opening a modal.
+
+```css
+body.modal-open {
+    overflow: hidden;
+}
+```
 
 ## Best Practices
 
