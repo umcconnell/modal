@@ -1,6 +1,6 @@
 .modal,
 .modal__backdrop {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
@@ -82,6 +82,13 @@
     transform: translate(0);
     opacity: 1;
 }
+
+/* Uncomment this to prevent scrolling when modal is open */
+/*
+body.modal-open {
+    overflow: hidden;
+}
+*/
 
 /* Uncomment this for a background zoom-out effect */
 /*
