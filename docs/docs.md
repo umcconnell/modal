@@ -248,7 +248,7 @@ You can customize the appearance of the modal by overriding its css:
 </head>
 ```
 
-Here are some practical examples to copy-paste
+Here are some practical examples to copy-paste:
 
 ### Scale
 
