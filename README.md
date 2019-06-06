@@ -110,6 +110,9 @@ And using following html:
 </div>
 ```
 
+See the [docs](docs/docs.md#customizing) for more information about
+customization and copy-paste examples.
+
 ## Examples
 
 You can find more examples in the [examples folder](examples/) or on JSFiddle
