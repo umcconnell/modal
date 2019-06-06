@@ -269,7 +269,8 @@ Zoom in effect when opening the modal, zoom out when closing it
 
 ### Zoom-out
 
-Zoom-out the background when opening a modal.
+Zoom-out the background when opening a modal
+(see: [/examples/zoom-out](../examples/zoom-out.html)).
 
 ```css
 main {
