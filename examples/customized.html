@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Customized Modal Example</title>
+        <link rel="stylesheet" href="../src/modal.css" />
+        <style>
+            .myModal .modal__content {
+                transform: scale(1.3);
+                opacity: 0;
+                background-color: #4baf81;
+                color: #fff;
+            }
+
+            .myModal.open .modal__content {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            .myModal .modal__content .modal__close-icon {
+                color: #fff;
+            }
+
+            .myModal .modal__backdrop {
+                background-color: rgba(76, 175, 80, 0.4);
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <h1>Hello World!</h1>
+            <p>
+                Qui accusantium consequatur sapiente architecto. Praesentium
+                nesciunt omnis quidem molestias dolores nihil. Suscipit illo ad
+                molestiae. Possimus animi atque consequatur.
+            </p>
+            <button id="open">Open Modal</button>
+        </main>
+
+        <div class="modal myModal" aria-label="Example dialog">
+            <div class="modal__content">
+                <button class="modal__close modal__close-icon">&times;</button>
+                <h2>Hello World</h2>
+                I'm full customizable!
+            </div>
+        </div>
+
+        <script src="../src/modal.js"></script>
+        <script>
+            let modal = new Modal(".myModal");
+            let btn = document.getElementById("open");
+
+            btn.addEventListener("click", () => modal.open());
+        </script>
+    </body>
+</html>
