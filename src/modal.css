@@ -83,24 +83,6 @@
     opacity: 1;
 }
 
-/* Uncomment this to prevent scrolling when modal is open */
-/*
-body.modal-open {
-    overflow: hidden;
-}
-*/
-
-/* Uncomment this for a background zoom-out effect */
-/*
-main {
-    transition: transform 0.3s;
-}
-
-body.modal-open main {
-    transform: scale(0.97);
-}
-*/
-
 @media screen and (max-width: 700px) {
     .modal__content {
         width: 85%;
