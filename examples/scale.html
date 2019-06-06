@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Modal Scale Example</title>
+        <link rel="stylesheet" href="../src/modal.css" />
+        <style>
+            .modal__content {
+                transform: scale(1.3);
+                opacity: 0;
+            }
+
+            .modal.open .modal__content {
+                transform: scale(1);
+                opacity: 1;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <button id="open">Open Modal</button>
+            <p>
+                Qui accusantium consequatur sapiente architecto. Praesentium
+                nesciunt omnis quidem molestias dolores nihil. Suscipit illo ad
+                molestiae. Possimus animi atque consequatur.
+            </p>
+            <p>
+                Excepturi aut eum ab sit quis. Blanditiis quibusdam magnam
+                cupiditate autem doloribus autem. Distinctio et corporis unde
+                aut est veniam impedit. Veritatis vel earum dolor nobis labore
+                enim. Aliquid perferendis ratione magni.
+            </p>
+            <p>
+                Recusandae quaerat odio repellendus est. Dolor voluptatem
+                voluptas ut mollitia commodi aspernatur. Sunt vel et est rem
+                porro. Magnam eius impedit amet quis quibusdam. Enim provident
+                amet mollitia distinctio officia.
+            </p>
+        </main>
+
+        <div class="modal" aria-label="Example Dialog">
+            <div class="modal__content">
+                <h2>Hello World!</h2>
+                <p>
+                    Eos id excepturi cumque aliquam aut. Rem consequatur veniam
+                    vel sint accusamus. Fuga sed fugiat et consectetur hic.
+                    Temporibus ut ducimus omnis et quisquam porro distinctio.
+                    Quia labore sequi rerum libero unde in illo.
+                </p>
+            </div>
+            <button class="modal__close modal__close-icon">&times;</button>
+        </div>
+
+        <script src="../src/modal.js"></script>
+        <script>
+            let modal = new Modal(".modal");
+            let openBtn = document.getElementById("open");
+
+            openBtn.addEventListener("click", () => modal.open());
+        </script>
+    </body>
+</html>
