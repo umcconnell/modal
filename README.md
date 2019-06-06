@@ -54,8 +54,8 @@ You can also use the es6 module version:
 </main>
 
 <script type="module">
-    import Modal from "https://cdn.jsdelivr.net/gh/umcconnell/modal@1/src/modal.mjs"
-    
+    import Modal from "https://cdn.jsdelivr.net/gh/umcconnell/modal@1/src/modal.mjs";
+
     //Your code here...
 </script>
 ```
@@ -85,13 +85,18 @@ Now you can open the modal with javascript:
 You can customize the appearance of the modal by overriding the styles, like so:
 
 ```css
-.my-modal {
-    background-color: green;
+.myModal .modal__content {
+    transform: scale(1.3);
+    opacity: 0;
 }
 
-.my-modal .modal__content {
-    background-color: blue;
-    border-radius: 0;
+.myModal.open .modal__content {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.myModal .modal__backdrop {
+    background-color: rgba(255, 255, 255, 0.7);
 }
 ```
 
