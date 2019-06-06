@@ -20,6 +20,7 @@
     -   [Close Event](#close-event)
     -   [Open Event](#open-event)
 -   [Customizing](#customizing)
+    -   [Scale](#scale)
     -   [Zoom-out](#zoom-out)
     -   [No overflow](#no-overflow)
 -   [Best Practices](#best-practices)
@@ -248,6 +249,23 @@ You can customize the appearance of the modal by overriding its css:
 ```
 
 Here are some practical examples to copy-paste
+
+### Scale
+
+Zoom in effect when opening the modal, zoom out when closing it
+(see: [/examples/scale](../examples/scale.html)).
+
+```css
+.modal__content {
+    transform: scale(1.3);
+    opacity: 0;
+}
+
+.modal.open .modal__content {
+    transform: scale(1);
+    opacity: 1;
+}
+```
 
 ### Zoom-out
 
